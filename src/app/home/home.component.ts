@@ -12,10 +12,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private data: DataService) { }
   ngOnInit() {
-    this.data.GetUsers().subscribe(data => {
-      this.users = data;
-      console.log(this.users);
-    });
+    this.data.GetUsers().subscribe(data => { this.users = data; });
   }
 
   firstClick() { this.count = this.count + 1; }
