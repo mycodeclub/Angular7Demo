@@ -9,7 +9,6 @@ import { DataService } from '../data.service';
 export class HomeComponent implements OnInit {
   users: object;
   count: number = 0;
-
   constructor(private data: DataService) { }
   ngOnInit() {
     this.data.GetUsers().subscribe(data => { this.users = data; });

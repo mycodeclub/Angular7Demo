@@ -62,6 +62,40 @@ in src/app/app.module.ts
 	- In ngOnInit() method. || Execute when component load.
 		 ngOnInit() {    this.data.GetUsers().subscribe(data => { this.users = data; }); }
 
+============================================================================================================================
+********************************** 38:00 min -  Angular forms *******************************
+============================================================================================================================
+2 approches (Template base or  Reactive Forms ) | Reactive forms provide more controle.
+ - in src/app/app.module.ts
+   import { ReactiveFormsModule } from '@angular/forms'; and add ReactiveFormsModule to imports array.
+   import { FormsModule } from '@angular/forms';  and add FormsModule to imports array.
+
+  - In what ever component you need to use the form.
+	- import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+
+	export class ContactComponent implements OnInit {
+  messageForms: FormGroup;
+  submitted = false;
+  success = false;
+  constructor(private formBuilder: FormBuilder) {
+    this.messageForms = this.formBuilder.group({
+      name: ['', Validators.required],
+      message: ['', Validators.required],
+    })
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    if (this.messageForms.invalid) { return; }
+    this.success = true;
+  }
+
+
+  
+   
+
+
+
 
 
 
